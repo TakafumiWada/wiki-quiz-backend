@@ -19,7 +19,7 @@ module.exports.getArticleData = async function() {
     contents = await page.content();
     articleValid = contents.length > 2;
     if (articleValid) articleValid = contents[0].content.length > 80;
-    if (accessCount++ > -1) throw "loop error";
+    if (accessCount++ > 10) throw "loop error";
   }
 
   return {
