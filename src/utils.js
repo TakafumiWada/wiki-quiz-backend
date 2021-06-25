@@ -27,6 +27,6 @@ module.exports.getArticleData = async function() {
     topic: contents[0],
     contents: contents,
     categories: await page.categories(),
-    externalLinks: await page.links(),
+    words: await page.links(),
   };
 };
