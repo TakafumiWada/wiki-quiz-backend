@@ -5,7 +5,7 @@ const express = require("express"),
 
 app.use(cors());
 
-const wikiAPIRouter = require("./api/routes/wikiAPI");
+const wikiAPIRouter = require("./api/routes");
 app.use(wikiAPIRouter);
 
 app.listen(port, () => {

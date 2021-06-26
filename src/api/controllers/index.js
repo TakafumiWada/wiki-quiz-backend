@@ -1,3 +1,3 @@
 exports.getQuestion = function(req, res) {
-  res.json({ message: "Hello~" });
+  res.json({ message: "Hello" });
 };
