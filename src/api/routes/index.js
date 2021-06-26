@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getArticleData } = require("../service/wiki");
+const { getArticleData, searchArticleData } = require("../service/wiki");
 
 router.get("/article/get", async (req, res) => {
   try {
@@ -11,8 +11,18 @@ router.get("/article/get", async (req, res) => {
     if (e == "loop error") {
       res.status(511).send(e);
     } else {
-      res.send(e);
+      res.status(503).send(e);
     }
+  }
+});
+
+router.post("/article/search", async (req, res) => {
+  try {
+    const data = await searchArticleData(req.body.text);
+    res.send(data.results[0]);
+  } catch (e) {
+    console.log(e);
+    res.status(503).send(e);
   }
 });
 
