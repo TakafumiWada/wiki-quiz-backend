@@ -4,7 +4,7 @@ const { getArticleData, searchArticleData } = require("../service/wiki");
 
 router.get("/article/get", async (req, res) => {
   try {
-    const data = await getArticleData();
+    const data = await getArticleData(req.headers["user-agent"]);
     data.categories = data.categories.map((category) => category.substr(9));
     res.send(data);
   } catch (e) {

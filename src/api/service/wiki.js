@@ -2,7 +2,7 @@ const wiki = require("wikijs").default;
 const LIMITED_WORD_LENGTH = 18;
 const SELECTED_WORDS_NUMBER = 9;
 
-module.exports.getArticleData = async function() {
+module.exports.getArticleData = async function(userAgent) {
   let accessCount = 0;
   let randomPage = "";
   let page = {};
@@ -14,16 +14,14 @@ module.exports.getArticleData = async function() {
     randomPage = await wiki({
       apiUrl: "http://ja.wikipedia.org/w/api.php",
       headers: {
-        user_agent:
-          "WikiQuiz/1.0(https://wiki-quiz-frontend-prod.an.r.appspot.com/;https://www.facebook.com/takafumi.wada.528;TakafumiWada;wdtk2525@gmail.com)",
+        "User-Agent": userAgent,
       },
     }).random();
     //ランダムで取得した記事の詳細を取得
     page = await wiki({
       apiUrl: "http://ja.wikipedia.org/w/api.php",
       headers: {
-        user_agent:
-          "WikiQuiz/1.0(https://wiki-quiz-frontend-prod.an.r.appspot.com/;https://www.facebook.com/takafumi.wada.528;TakafumiWada;wdtk2525@gmail.com)",
+        "User-Agent": userAgent,
       },
     }).page(randomPage[0]);
 
