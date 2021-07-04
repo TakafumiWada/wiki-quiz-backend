@@ -42,6 +42,7 @@ module.exports.getArticleData = async function(userAgent) {
     categories: await page.categories(),
     words: words,
     image: await page.mainImage(),
+    url: page.url(),
   };
 };
 
