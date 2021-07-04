@@ -11,6 +11,8 @@ router.get("/article/get", async (req, res) => {
     if (e == "loop error") {
       res.status(511).send(e);
     } else {
+      console.error(e);
+
       res.status(503).send(e);
     }
   }

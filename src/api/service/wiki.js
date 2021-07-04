@@ -13,10 +13,18 @@ module.exports.getArticleData = async function() {
     //ランダムで記事を取得
     randomPage = await wiki({
       apiUrl: "http://ja.wikipedia.org/w/api.php",
+      headers: {
+        user_agent:
+          "WikiQuiz/1.0(https://wiki-quiz-frontend-prod.an.r.appspot.com/;https://www.facebook.com/takafumi.wada.528;TakafumiWada;wdtk2525@gmail.com)",
+      },
     }).random();
     //ランダムで取得した記事の詳細を取得
     page = await wiki({
       apiUrl: "http://ja.wikipedia.org/w/api.php",
+      headers: {
+        user_agent:
+          "WikiQuiz/1.0(https://wiki-quiz-frontend-prod.an.r.appspot.com/;https://www.facebook.com/takafumi.wada.528;TakafumiWada;wdtk2525@gmail.com)",
+      },
     }).page(randomPage[0]);
 
     words = await page.links();
