@@ -1,3 +1,5 @@
 steps:
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "app.yaml"]
+    args: ["app", "deploy", "--version", "${_VERSION}", "app.yaml"]
+substitutions:
+  _VERSION: v1-0-1
