@@ -18,9 +18,9 @@ router.get("/article/get", async (req, res) => {
   }
 });
 
-router.post("/article/search", async (req, res) => {
+router.get("/article/search", async (req, res) => {
   try {
-    const data = await searchArticleData(req.body.text);
+    const data = await searchArticleData(req.query.text);
     res.send(data.results[0]);
   } catch (e) {
     console.log(e);
