@@ -2,8 +2,8 @@
 
 ## 概要
 
-wiki-quiz のバックエンドです。
-wikipediaAPI を叩いたり、クイズデータのバリデーションを行います。
+wiki-quiz のバックエンドです。<br>
+wiki-quiz の詳細は[こちら](https://github.com/TakafumiWada/wiki-quiz-frontend)のREADMEから
 
 ## 環境
 
